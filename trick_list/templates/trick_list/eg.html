@@ -1,8 +1,0 @@
-
-<form action="{% url 'trick_list:learn_view' id=yesno.id%}" method="post">
-	{% csrf_token %}
-	{{ learn }}
-	<input type="submit" onclick="return confirm('Did you really learn this trick?');">    
-</form>
-
-{{ yesno.name }}
