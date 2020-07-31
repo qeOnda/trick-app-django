@@ -1,0 +1,30 @@
+<h1>Trick List</h1>
+
+<form action="" method="post">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="submit">    
+</form>
+
+<table style="width:40%">
+	<tr>
+			<th style="text-align:left">Trick Name</th>
+			<th style="text-align:left">Category</th>
+			<th style="text-align:left">Date Added</th>
+	</tr>
+	{% for trick in li %}
+	<form action="{% url 'trick_list:trick_delete' id=trick.id %}" method="post">
+	{% csrf_token %}
+		<tr>
+			<td><a href="{% url 'trick_list:trick_view' id=trick.id %}">{{trick.name|title}}</a></td>
+			<td><a href="{% url 'trick_list:category_view' cat=trick.category %}">{{ trick.category }}</a></td>
+			<td>{{trick.date_added|date:"d-m-y"}}</td>
+			<td><input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete?');"></td>
+		</tr>
+	</form>
+	{% endfor %}
+</table>
+
+
+
+
