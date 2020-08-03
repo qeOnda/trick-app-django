@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import To_learn
 from .forms import TrickForm, LearnForm
 from django.http import HttpResponseRedirect
-
+import random
 
 
 # Create your views here.
@@ -57,3 +57,25 @@ def category_view(request, cat):
 	}
 	return render(request, 'trick_list/categories.html', context)
 
+def new_view(request):
+	form = TrickForm()
+	li = To_learn.objects.all()
+	if request.method == 'POST':
+		form = TrickForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('/home/')
+	context = {
+		'form': form,
+		'li': li
+	}
+	return render(request, 'trick_list/new.html', context)		
+
+def random_view(request):
+	items = To_learn.objects.all()
+	random_item = random.choice(items)
+	context = {
+		'items': items,
+		'random_item': random_item,
+	}
+	return render(request, 'trick_list/random.html', context)

@@ -3,25 +3,31 @@
 {% load static %}
 
 {% block content %}
-	<h1><a href="{% url 'trick_list:home' %}">{{ trick_name.name|title }}</a></h1>
+<h1>{{ trick_name.name|title }}</a></h1>
 
-	<ul style="list-style-type:none;">
-		<li><a href="{% url 'trick_list:category_view' cat=trick_name.category %}">{{ trick_name.category }}</a></li>
-		<li><strong>Date Added:</strong> {{ trick_name.date_added|date:"d-m-y" }}</li>
-		<li>
-			{% if trick_name.learned is True %}
-				<li><strong>Learned:</strong> Completed</li>
-			{% else %}	
-			<form action="{% url 'trick_list:trick_view' id=trick_name.id%}" method="post">
-					{% csrf_token %}
-					{{ learn }}
-					<input type="submit" onclick="return confirm('Did you really learn this trick?');">    
-			</form>
-			{% endif %}
-		</li>
-	</ul>
-
-	<p>{% video trick_name.video 'small' %}</p>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4">
+			<ul style="list-style-type:none;">
+				<li><a href="{% url 'trick_list:category_view' cat=trick_name.category %}">{{ trick_name.category }}</a></li>
+				<li><strong>Date Added:</strong> {{ trick_name.date_added|date:"d-m-y" }}</li>
+				<li>
+					{% if trick_name.learned is True %}
+						<li><strong>Learned:</strong> Completed</li>
+					{% else %}	
+					<form action="{% url 'trick_list:trick_view' id=trick_name.id%}" method="post">
+							{% csrf_token %}
+							{{ learn }}
+							<input type="submit" onclick="return confirm('Did you really learn this trick?');">    
+					</form>
+					{% endif %}
+				</li>
+			</ul>
+		</div>
+		<div class="col-lg-8">
+			<p>{% video trick_name.video 'small' %}</p>
+		</div>
+	</div>
+</div>
 {% endblock %}
 
-		
