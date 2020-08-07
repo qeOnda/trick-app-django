@@ -39,6 +39,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 INSTALLED_APPS = [
     'embed_video',
+    'crispy_forms',
     'trickapp.apps.TrickappConfig',
     'whitenoise.runserver_nostatic',
     'django.contrib.admin',

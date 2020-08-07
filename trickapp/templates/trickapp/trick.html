@@ -1,0 +1,33 @@
+{% extends 'trickapp/base.html' %}
+{% load embed_video_tags %}
+{% load static %}
+
+{% block content %}
+<h1>{{ trick_name.name|title }}</a></h1>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4">
+			<ul style="list-style-type:none;">
+				<li><a href="{% url 'trickapp:category_view' cat=trick_name.category %}">{{ trick_name.category }}</a></li>
+				<li><strong>Date Added:</strong> {{ trick_name.date_added|date:"d-m-y" }}</li>
+				<li>
+					{% if trick_name.learned is True %}
+						<li><strong>Learned:</strong> Completed</li>
+					{% else %}	
+					<form action="{% url 'trickapp:trick_view' id=trick_name.id%}" method="post">
+							{% csrf_token %}
+							{{ learn }}
+							<input type="submit" onclick="return confirm('Did you really learn this trick?');">    
+					</form>
+					{% endif %}
+				</li>
+			</ul>
+		</div>
+		<div class="col-lg-8">
+			<p>{% video trick_name.video 'small' %}</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

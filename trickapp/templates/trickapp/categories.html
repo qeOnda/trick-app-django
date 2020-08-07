@@ -1,0 +1,12 @@
+{% extends 'trickapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>{{ cat }} Category</a></h1>
+
+<ul>
+{% for trick in trick_category %}
+	<li><a href="{% url 'trickapp:trick_view' id=trick.id %}">{{ trick.name|title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
