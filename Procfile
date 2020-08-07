@@ -1,1 +1,1 @@
-web: gunicorn skate.wsgi
+web: gunicorn skate.wsgi --log-file -
