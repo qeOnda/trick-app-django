@@ -5,8 +5,12 @@ import sys
 
 
 def main():
+<<<<<<< HEAD
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'skate.settings')
+=======
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'skateapp.settings')
+>>>>>>> 41640c69309f7ec82717e9d593fc097b6c9bf2cc
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

@@ -1,0 +1,6 @@
+{% extends 'trick_list/base.html' %}
+{% load embed_video_tags %}
+
+{% block content %}
+{% video random_item.video 'small' %}
+{% endblock %}

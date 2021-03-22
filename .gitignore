@@ -138,4 +138,8 @@ dmypy.json
 .pytype/
 
 # Cython debug symbols
+<<<<<<< HEAD
 cython_debug/.env
+=======
+cython_debug/
+>>>>>>> 41640c69309f7ec82717e9d593fc097b6c9bf2cc
