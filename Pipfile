@@ -1,8 +1,4 @@
-<<<<<<< HEAD
- [[source]]
-=======
 [[source]]
->>>>>>> 41640c69309f7ec82717e9d593fc097b6c9bf2cc
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
@@ -10,7 +6,6 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-<<<<<<< HEAD
 django = "==3.1.6"
 psycopg2 = "*"
 psycopg2-binary = "*"
@@ -20,13 +15,6 @@ whitenoise = "*"
 dj-database-url = "*"
 django-embed-video = "*"
 django-crispy-forms = "*"
-=======
-django = "*"
-django-embed-video = "*"
-django-crispy-forms = "*"
-gunicorn = "*"
-django-heroku = "*"
->>>>>>> 41640c69309f7ec82717e9d593fc097b6c9bf2cc
 
 [requires]
 python_version = "3.8"
